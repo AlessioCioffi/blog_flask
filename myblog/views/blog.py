@@ -17,7 +17,7 @@ def get_user(id):
     return user
 
 
-# Cbtener publiclaciónes
+# Obtener publicaciones
 @blog.route('/')
 def index():
     posts = Post.query.all()
@@ -26,7 +26,7 @@ def index():
     return render_template('blog/index.html', posts=posts, get_user=get_user)
 
 
-# Crar publicación
+# Crear publicación
 @blog.route('/blog/create', methods=['GET','POST'])#sigue la ruta /auth
 @login_required
 def create():
@@ -61,7 +61,7 @@ def get_post(id, check_author=True):
         abort(404)
     return post
 
-# Editar publicacion
+# Editar publicación
 @blog.route('/blog/update/<int:id>', methods=['GET','POST'])#sigue la ruta /auth
 @login_required
 def update(id):

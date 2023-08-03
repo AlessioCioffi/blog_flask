@@ -4,11 +4,11 @@ from flask import (render_template, Blueprint,
                    flash, g, redirect, request,
                    session,url_for)
 '''
-render_template: se utiliza para renderizar templates
+render_template: se utiliza para redirigir templates
 Blueprint: se utiliza para registrar las vistas en la aplicación
 flash: se utiliza para enviar mensajes cuando ocurren errores
 g: se utiliza para capturar el usuario que ha iniciado sesión
-redirect: se utiliza para redireccionar a una nueva ruta
+redirect: se utiliza para redirection a una nueva ruta
 request: se utiliza para capturar las peticiones del cliente
 session: se utiliza para realizar consultas a la base de datos
 url_for: se utiliza para trabajar con las rutas de manera dinámica
@@ -25,8 +25,8 @@ from myblog.models.user import User
 # Registrar usuario
 @auth.route('/register', methods=['GET','POST'])
 def register():
-    # Con el decorador .rout asiñamos el nombre register;
-    # Con la peticion auth/register devolvemos la fución que decora
+    # Con el decorador .rout asignamos el nombre register;
+    # Con la petición auth/register devolvemos la función que decora
     if request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
@@ -73,7 +73,7 @@ def login():
 
 
 # Verificar login
-# Con el sigiente decorador se llama la funcion para cualquier solicitud de la app
+# Con el siguiente decorador se llama la función para cualquier solicitud de la app
 @auth.before_app_request
 def load_logged_in_user():
     user_id = session.get('user_id')
@@ -91,15 +91,15 @@ def logout():
     return redirect(url_for('blog.index'))
 
 
-# Inicio sesión obligadorio
+# Inicio sesión obligatorio
 def login_required(view):
-    '''El decorador tiene la capacidad de envolver la funcion
-    sin perder las informaciones, que contiene de la funcion original,
+    '''El decorador tiene la capacidad de envolver la función
+    sin perder las informaciones, que contiene de la función original,
     para utilizarlas otra vez'''
     @functools.wraps(view)
     def wrapped_view(**kwargs):
         if g.user is None:
-            # si g.user no contiene datos redireciona a login
+            # si g.user no contiene datos redirigir a login
             return redirect(url_for('auth.login'))
         return view(**kwargs)
     return wrapped_view
