@@ -1,13 +1,13 @@
 # Blog con Flask
 
 Este proyecto es un blog desarrollado con Flask.
-El blog permite a los usuarios crear,ver o manipular publicaciones y realizar comentarios en ellas.
+El blog permite a los usuarios crear, ver o manipular publicaciones y realizar comentarios en ellas.
 
 # Instalación
 
 Para ejecutar este proyecto, se recomienda seguir los siguientes pasos:
 
-1. Clona el repositorio:
+1. Clona el repositorio
 
 2. Crea el entorno virtual
 python -m venv venv
