@@ -19,8 +19,7 @@ venv\Scripts\activate
 pip install -r requirements.txt
 
 5. Cadena de conexión para SQLAlchemy en config.py:
-6. 
-SQLALCHEMY_DATABASE_URI = f"mysql+pymysql://{DATABASE_USER}:{DATABASE_PASSWORD}@{DATABASE_HOST}:{DATABASE_PORT}/{DATABASE_NAME}"
+   SQLALCHEMY_DATABASE_URI = f"mysql+pymysql://{DATABASE_USER}:{DATABASE_PASSWORD}@{DATABASE_HOST}:{DATABASE_PORT}/{DATABASE_NAME}"
 
 7. Ejecuta la app localmente
 python main.py runserver
